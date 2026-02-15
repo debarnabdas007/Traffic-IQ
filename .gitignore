@@ -1,0 +1,22 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+venv/
+.env
+
+# Data (Don't push heavy videos or raw CSVs)
+data/raw/*
+!data/raw/.gitkeep
+data/processed/*.csv
+
+# Models 
+# data/models/*.pkl
+
+# IDEs
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
