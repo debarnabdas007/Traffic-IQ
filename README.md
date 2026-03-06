@@ -1,6 +1,5 @@
 # 🚗 Traffic-IQ: Low-Resource Vehicle Counter for Edge Deployment
 
-## Video DEMO 
 https://github.com/user-attachments/assets/b112cf78-bd98-418c-a62b-f2acef7579c7
 
 **Traffic-IQ** is a real-time vehicle detection and classification system built for **edge devices** without requiring GPUs. It combines classical computer vision techniques with a lightweight k-nearest neighbors (KNN) classifier to achieve low-latency, multi-class vehicle counting in resource-constrained environments.
