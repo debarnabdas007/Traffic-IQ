@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Traffic-IQ Dashboard</title>
+    <style>
+        /* Reset margins and force the body to be exactly the height of the window */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #eaeaea;
+            height: 100vh; /* 100% of the Viewport Height */
+            display: flex;
+            flex-direction: column;
+            overflow: hidden; /* Strictly prevents any vertical scrolling */
+        }
+
+        /* Block 1: The Heading */
+        h1 {
+            color: #333;
+            text-align: center;
+            padding: 15px 0;
+            flex: 0 0 auto; /* Keeps the heading at a fixed size */
+        }
+
+        /* Block 2: The Video Screen */
+        .video-container {
+            flex: 1 1 auto; /* Expands to fill all available middle space */
+            width: 100%; /* Spans edge-to-edge with no side spaces */
+            background-color: #000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        .video-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain; /* Keeps the video aspect ratio intact without stretching it weirdly */
+        }
+
+        /* Block 3: The Dashboard */
+        .dashboard {
+            flex: 0 0 auto; /* Keeps the dashboard at a fixed size at the bottom */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 30px;
+            padding: 20px 0;
+            background-color: #eaeaea;
+        }
+
+        .stat-box {
+            background-color: white;
+            border: 2px solid #999;
+            border-radius: 8px;
+            padding: 10px 30px;
+            min-width: 120px;
+            text-align: center;
+        }
+
+        .stat-title {
+            font-size: 18px;
+            color: #555;
+            font-weight: bold;
+        }
+
+        .stat-value {
+            font-size: 32px;
+            color: #000;
+            font-weight: bold;
+            margin-top: 5px;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Traffic-IQ: Live Vehicle Counter</h1>
+
+    <div class="video-container">
+        <img src="/video_feed" alt="Live Traffic Feed">
+    </div>
+
+    <div class="dashboard">
+        <div class="stat-box">
+            <span class="stat-title">Cars</span>
+            <span class="stat-value" id="car-val">0</span>
+        </div>
+        <div class="stat-box">
+            <span class="stat-title">Trucks</span>
+            <span class="stat-value" id="truck-val">0</span>
+        </div>
+        <div class="stat-box">
+            <span class="stat-title">Bikes</span>
+            <span class="stat-value" id="bike-val">0</span>
+        </div>
+    </div>
+
+    <script>
+        async function fetchCounts() {
+            try {
+                let response = await fetch('/stats');
+                let data = await response.json();
+                
+                document.getElementById('car-val').innerText = data.Car;
+                document.getElementById('truck-val').innerText = data.Truck;
+                document.getElementById('bike-val').innerText = data.Bike;
+            } catch (error) {
+                console.log("Error fetching data:", error);
+            }
+        }
+
+        setInterval(fetchCounts, 1000);
+    </script>
+
+</body>
+</html>
