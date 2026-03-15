@@ -476,4 +476,4 @@ For issues or questions, please open a GitHub issue or contact dasdebarnab222@gm
 
 ---
 
-**Built with ❤️ for edge AI deployment**
+**Built for edge AI deployment**
