@@ -454,13 +454,13 @@ See `requirements.txt` for complete list.
    - Small model files
    - Efficient streaming format (MJPEG)
 
-## 📝 License
+##  License
 
-[Add your license here]
+License
 
-## 👤 Author
+##  Author
 
-[Your Name]
+Debarnab Das
 
 ## 🤝 Contributing
 
@@ -470,9 +470,9 @@ Contributions welcome! Please:
 3. Add tests for new features
 4. Submit a pull request
 
-## 📞 Support
+##  Support
 
-For issues or questions, please open a GitHub issue or contact [your-email@example.com]
+For issues or questions, please open a GitHub issue or contact dasdebarnab222@gmail.com
 
 ---
 
